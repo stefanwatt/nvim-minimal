@@ -1,3 +1,4 @@
+require("config.diff")
 require("config.options")
 require("config.usercmds")
 require("config.keymaps")
