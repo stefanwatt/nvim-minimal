@@ -106,7 +106,12 @@ local function auto_indent_new_line()
 end
 vim.keymap.set("n", "o", auto_indent_new_line, opts)
 
-vim.api.nvim_set_keymap('n', '<C-n>', '<Plug>JumpDiffCharNextStart', { noremap = false })
-vim.api.nvim_set_keymap('n', '<C-p>', '<Plug>JumpDiffCharPrevStart', { noremap = false })
+vim.api.nvim_set_keymap('n', '<C-n>',
+  '<Plug>JumpDiffCharNextStart<C-w>j<Plug>JumpDiffCharNextStart<Plug>JumpDiffCharPrevStart<C-w>k',
+  { noremap = false, silent = true })
+vim.api.nvim_set_keymap('n', '<C-p>',
+  '<Plug>JumpDiffCharPrevStart<C-w>j<Plug>JumpDiffCharPrevStart<Plug>JumpDiffCharNextStart<C-w>k',
+  { noremap = false, silent = true })
+
 vim.api.nvim_set_keymap('n', '<C-A-n>', ']c', { noremap = false })
 vim.api.nvim_set_keymap('n', '<C-A-p>', '[c', { noremap = false })
